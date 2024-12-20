@@ -8,10 +8,19 @@
 </head>
 <body>
     <div class="container">
-        <h1>Click a Card</h1>
-        <div id="deck" class="deck"></div>
-        <div id="selected-card" class="selected-card">
-            <p>Click a card to reveal!</p>
+        <h1>Card Matcher</h1>
+        <div class="game-area">
+            <div id="rejected-pile" class="pile">
+                <h3>Rejected</h3>
+            </div>
+            <div id="deck" class="deck"></div>
+            <div id="accepted-pile" class="pile">
+                <h3>Accepted</h3>
+            </div>
+        </div>
+        <div class="buttons">
+            <button id="reject-btn" class="action-btn reject">✗</button>
+            <button id="accept-btn" class="action-btn accept">✓</button>
         </div>
     </div>
     <script src="script.js"></script>
