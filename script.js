@@ -63,9 +63,36 @@ function handleDecision(accepted) {
     }, 300);
 }
 
+function showPileCards(pileId) {
+    const modal = document.getElementById('modal');
+    const modalTitle = document.getElementById('modal-title');
+    const modalCards = document.getElementById('modal-cards');
+    const pile = document.getElementById(pileId);
+    
+    modalTitle.textContent = pileId === 'accepted-pile' ? 'Accepted Cards' : 'Rejected Cards';
+    modalCards.innerHTML = '';
+    
+    const cards = pile.querySelectorAll('.card');
+    cards.forEach(card => {
+        const cardClone = card.cloneNode(true);
+        cardClone.style.position = 'relative';
+        cardClone.style.transform = 'none';
+        cardClone.style.opacity = '1';
+        cardClone.style.margin = '10px';
+        modalCards.appendChild(cardClone);
+    });
+    
+    modal.style.display = 'block';
+}
+
 // Event Listeners
 document.getElementById('accept-btn').addEventListener('click', () => handleDecision(true));
 document.getElementById('reject-btn').addEventListener('click', () => handleDecision(false));
+document.getElementById('accepted-pile').addEventListener('click', () => showPileCards('accepted-pile'));
+document.getElementById('rejected-pile').addEventListener('click', () => showPileCards('rejected-pile'));
+document.querySelector('.close-btn').addEventListener('click', () => {
+    document.getElementById('modal').style.display = 'none';
+});
 
 // Initialize the game
 initializeDeck();
