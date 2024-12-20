@@ -57,9 +57,10 @@ function handleDecision(accepted) {
 }
 
 function returnCardToDeck(card, pileCard) {
-    const suit = card.querySelector('.card-suit').textContent;
-    const value = card.querySelector('.card-value').textContent;
-    deck.push({ suit, value });
+    const word = card.querySelector('.card-word').textContent;
+    const definition = card.querySelector('.card-definition').textContent;
+    const emoji = card.querySelector('.card-emoji').textContent;
+    deck.push({ word, definition, emoji });
     pileCard.remove();
     showNextCard();
 }
