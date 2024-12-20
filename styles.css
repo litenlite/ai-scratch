@@ -42,41 +42,53 @@ body {
     height: 400px;
     margin: 20px auto;
     display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1000px;
+}
+
+.venn-circles {
+    position: relative;
+    width: 500px;
+    height: 300px;
+    display: flex;
     justify-content: center;
     align-items: center;
 }
 
 .venn-circle {
     position: absolute;
-    width: 300px;
-    height: 300px;
+    width: 250px;
+    height: 250px;
     border-radius: 50%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-    text-align: center;
 }
 
 .venn-circle.player1 {
     background: rgba(255, 100, 100, 0.3);
-    left: calc(50% - 200px);
+    left: 50px;
 }
 
 .venn-circle.player2 {
     background: rgba(100, 100, 255, 0.3);
-    right: calc(50% - 200px);
+    right: 50px;
 }
 
 .venn-intersection {
     position: absolute;
-    width: 200px;
+    width: 150px;
     background: rgba(255, 255, 255, 0.4);
-    padding: 20px;
+    padding: 15px;
     border-radius: 15px;
     text-align: center;
     z-index: 2;
+}
+
+.values-left, .values-right {
+    width: 200px;
+    color: white;
+    font-size: 14px;
+    line-height: 1.4;
+    text-align: center;
 }
 
 .values {
