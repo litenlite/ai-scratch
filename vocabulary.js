@@ -35,6 +35,11 @@ const vocabularyCards = [
         emoji: "🎯"
     },
     {
+        word: "Competition",
+        definition: "The drive to excel and achieve against challenges or rivals",
+        emoji: "🏃‍♂️"
+    },
+    {
         word: "Compassion",
         definition: "Sympathetic concern for the sufferings of others",
         emoji: "💗"
@@ -105,6 +110,11 @@ const vocabularyCards = [
         emoji: "💎"
     },
     {
+        word: "Humor",
+        definition: "The ability to find and express what is amusing or comical",
+        emoji: "😄"
+    },
+    {
         word: "Humility",
         definition: "Freedom from pride or arrogance",
         emoji: "🌱"
@@ -138,6 +148,11 @@ const vocabularyCards = [
         word: "Mindfulness",
         definition: "The quality of being conscious or aware of something",
         emoji: "🧘"
+    },
+    {
+        word: "Nature",
+        definition: "Connection with and appreciation of the natural world",
+        emoji: "🌿"
     },
     {
         word: "Optimism",
