@@ -4,6 +4,7 @@ let currentCard = null;
 function initializeDeck() {
     deck = [...vocabularyCards];
     shuffleDeck();
+    console.log(`Total number of cards in deck: ${vocabularyCards.length}`);
 }
 
 function shuffleDeck() {
