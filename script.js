@@ -55,6 +55,17 @@ function showNextCard() {
 function handleDecision(accepted) {
     if (!currentCard) return;
     
+    if (accepted) {
+        const currentAccepted = currentPlayer === 1 ? player1Accepted : player2Accepted;
+        if (currentAccepted.length >= 10) {
+            alert("You've already selected 10 values! Please reject this card or remove some accepted cards first.");
+            return;
+        }
+        if (currentAccepted.length === 9) {
+            alert("Warning: This is your 10th and final value selection!");
+        }
+    }
+    
     const cardElement = document.querySelector('.card');
     const targetPile = accepted ? 'accepted-pile' : 'rejected-pile';
     const direction = accepted ? '300px' : '-300px';
@@ -100,7 +111,9 @@ function showPileCards(pileId) {
     const modalTitle = document.getElementById('modal-title');
     const modalCards = document.getElementById('modal-cards');
     
-    modalTitle.textContent = pileId === 'accepted-pile' ? 'Accepted Cards' : 'Rejected Cards';
+    const currentAccepted = currentPlayer === 1 ? player1Accepted : player2Accepted;
+    modalTitle.textContent = pileId === 'accepted-pile' ? 
+        `Accepted Cards (${currentAccepted.length}/10)` : 'Rejected Cards';
     modalCards.innerHTML = '';
     
     const cards = pileId === 'accepted-pile' 
