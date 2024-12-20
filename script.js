@@ -1,4 +1,5 @@
-let deck = [];
+let player1Deck = [];
+let player2Deck = [];
 let currentCard = null;
 let currentPlayer = 1;
 let player1Accepted = [];
@@ -7,12 +8,14 @@ let player1Rejected = [];
 let player2Rejected = [];
 
 function initializeDeck() {
-    deck = [...vocabularyCards];
-    shuffleDeck();
-    console.log(`Total number of cards in deck: ${vocabularyCards.length}`);
+    player1Deck = [...vocabularyCards];
+    player2Deck = [...vocabularyCards];
+    shuffleDeck(player1Deck);
+    shuffleDeck(player2Deck);
+    console.log(`Cards in each deck: ${vocabularyCards.length}`);
 }
 
-function shuffleDeck() {
+function shuffleDeck(deck) {
     for (let i = deck.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
         [deck[i], deck[j]] = [deck[j], deck[i]];
@@ -36,14 +39,15 @@ function showNextCard() {
     const deckContainer = document.getElementById('deck');
     deckContainer.innerHTML = '';
     
-    document.getElementById('card-count').textContent = `${deck.length} cards`;
+    const currentDeck = currentPlayer === 1 ? player1Deck : player2Deck;
+    document.getElementById('card-count').textContent = `${currentDeck.length} cards`;
     
-    if (deck.length === 0) {
+    if (currentDeck.length === 0) {
         deckContainer.innerHTML = '<div class="no-cards">No more cards!</div>';
         return;
     }
     
-    currentCard = deck.pop();
+    currentCard = currentDeck.pop();
     const cardElement = createCardElement(currentCard);
     deckContainer.appendChild(cardElement);
 }
@@ -117,7 +121,11 @@ function showPileCards(pileId) {
             const index = cardArray.indexOf(card);
             if (index > -1) {
                 cardArray.splice(index, 1);
-                deck.push(card);
+                if (currentPlayer === 1) {
+                    player1Deck.push(card);
+                } else {
+                    player2Deck.push(card);
+                }
                 showNextCard();
                 modal.style.display = 'none';
                 updatePileDisplay();
