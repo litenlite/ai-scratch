@@ -6,6 +6,7 @@ let player1Accepted = [];
 let player2Accepted = [];
 let player1Rejected = [];
 let player2Rejected = [];
+let lastShownCard = null;
 
 function initializeDeck() {
     player1Deck = [...vocabularyCards];
@@ -48,6 +49,7 @@ function showNextCard() {
     }
     
     currentCard = currentDeck.pop();
+    lastShownCard = currentCard;
     const cardElement = createCardElement(currentCard);
     deckContainer.appendChild(cardElement);
 }
@@ -177,19 +179,43 @@ function updatePileDisplay() {
 }
 
 document.getElementById('player1-btn').addEventListener('click', () => {
+    if (currentPlayer === 1) return; // Don't switch if already on player 1
     currentPlayer = 1;
     document.getElementById('player1-btn').classList.add('active');
     document.getElementById('player2-btn').classList.remove('active');
     document.getElementById('card-count').textContent = `${player1Deck.length} cards`;
     updatePileDisplay();
+    
+    // If the last shown card is in player 1's deck, shuffle it
+    if (lastShownCard && player1Deck.includes(lastShownCard)) {
+        const index = player1Deck.indexOf(lastShownCard);
+        if (index > -1) {
+            player1Deck.splice(index, 1);
+            player1Deck.push(lastShownCard);
+            shuffleDeck(player1Deck);
+        }
+    }
+    showNextCard();
 });
 
 document.getElementById('player2-btn').addEventListener('click', () => {
+    if (currentPlayer === 2) return; // Don't switch if already on player 2
     currentPlayer = 2;
     document.getElementById('player2-btn').classList.add('active');
     document.getElementById('player1-btn').classList.remove('active');
     document.getElementById('card-count').textContent = `${player2Deck.length} cards`;
     updatePileDisplay();
+    
+    // If the last shown card is in player 2's deck, shuffle it
+    if (lastShownCard && player2Deck.includes(lastShownCard)) {
+        const index = player2Deck.indexOf(lastShownCard);
+        if (index > -1) {
+            player2Deck.splice(index, 1);
+            player2Deck.push(lastShownCard);
+            shuffleDeck(player2Deck);
+        }
+    }
+    showNextCard();
 });
 document.getElementById('accepted-pile').addEventListener('click', () => showPileCards('accepted-pile'));
 document.getElementById('rejected-pile').addEventListener('click', () => showPileCards('rejected-pile'));
