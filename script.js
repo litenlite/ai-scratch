@@ -3,6 +3,8 @@ let currentCard = null;
 let currentPlayer = 1;
 let player1Accepted = [];
 let player2Accepted = [];
+let player1Rejected = [];
+let player2Rejected = [];
 
 function initializeDeck() {
     deck = [...vocabularyCards];
@@ -55,11 +57,20 @@ function handleDecision(accepted) {
     
     if (accepted) {
         if (currentPlayer === 1) {
-            player1Accepted.push(currentCard.word);
+            player1Accepted.push(currentCard);
         } else {
-            player2Accepted.push(currentCard.word);
+            player2Accepted.push(currentCard);
         }
-        drawVenn(player1Accepted, player2Accepted);
+        drawVenn(
+            player1Accepted.map(card => card.word),
+            player2Accepted.map(card => card.word)
+        );
+    } else {
+        if (currentPlayer === 1) {
+            player1Rejected.push(currentCard);
+        } else {
+            player2Rejected.push(currentCard);
+        }
     }
     
     cardElement.style.transform = `translateX(${direction}) rotate(${accepted ? '45deg' : '-45deg'})`;
@@ -84,26 +95,36 @@ function showPileCards(pileId) {
     const modal = document.getElementById('modal');
     const modalTitle = document.getElementById('modal-title');
     const modalCards = document.getElementById('modal-cards');
-    const pile = document.getElementById(pileId);
     
     modalTitle.textContent = pileId === 'accepted-pile' ? 'Accepted Cards' : 'Rejected Cards';
     modalCards.innerHTML = '';
     
-    const cards = pile.querySelectorAll('.card');
-    cards.forEach(pileCard => {
-        const cardClone = pileCard.cloneNode(true);
-        cardClone.style.position = 'relative';
-        cardClone.style.transform = 'none';
-        cardClone.style.opacity = '1';
-        cardClone.style.margin = '10px';
-        cardClone.style.cursor = 'pointer';
+    const cards = pileId === 'accepted-pile' 
+        ? (currentPlayer === 1 ? player1Accepted : player2Accepted)
+        : (currentPlayer === 1 ? player1Rejected : player2Rejected);
+    cards.forEach(card => {
+        const cardElement = createCardElement(card);
+        cardElement.style.position = 'relative';
+        cardElement.style.transform = 'none';
+        cardElement.style.opacity = '1';
+        cardElement.style.margin = '10px';
+        cardElement.style.cursor = 'pointer';
         
-        cardClone.addEventListener('click', () => {
-            returnCardToDeck(cardClone, pileCard);
-            modal.style.display = 'none';
+        cardElement.addEventListener('click', () => {
+            const cardArray = pileId === 'accepted-pile'
+                ? (currentPlayer === 1 ? player1Accepted : player2Accepted)
+                : (currentPlayer === 1 ? player1Rejected : player2Rejected);
+            const index = cardArray.indexOf(card);
+            if (index > -1) {
+                cardArray.splice(index, 1);
+                deck.push(card);
+                showNextCard();
+                modal.style.display = 'none';
+                updatePileDisplay();
+            }
         });
         
-        modalCards.appendChild(cardClone);
+        modalCards.appendChild(cardElement);
     });
     
     modal.style.display = 'block';
@@ -113,20 +134,39 @@ function showPileCards(pileId) {
 document.getElementById('accept-btn').addEventListener('click', () => handleDecision(true));
 document.getElementById('reject-btn').addEventListener('click', () => handleDecision(false));
 
+function updatePileDisplay() {
+    const acceptedPile = document.getElementById('accepted-pile');
+    const rejectedPile = document.getElementById('rejected-pile');
+    
+    // Clear existing cards
+    acceptedPile.innerHTML = '<h3>Accepted</h3>';
+    rejectedPile.innerHTML = '<h3>Rejected</h3>';
+    
+    // Add current player's cards
+    const acceptedCards = currentPlayer === 1 ? player1Accepted : player2Accepted;
+    const rejectedCards = currentPlayer === 1 ? player1Rejected : player2Rejected;
+    
+    acceptedCards.forEach(card => {
+        acceptedPile.appendChild(createCardElement(card));
+    });
+    
+    rejectedCards.forEach(card => {
+        rejectedPile.appendChild(createCardElement(card));
+    });
+}
+
 document.getElementById('player1-btn').addEventListener('click', () => {
     currentPlayer = 1;
     document.getElementById('player1-btn').classList.add('active');
     document.getElementById('player2-btn').classList.remove('active');
-    initializeDeck();
-    showNextCard();
+    updatePileDisplay();
 });
 
 document.getElementById('player2-btn').addEventListener('click', () => {
     currentPlayer = 2;
     document.getElementById('player2-btn').classList.add('active');
     document.getElementById('player1-btn').classList.remove('active');
-    initializeDeck();
-    showNextCard();
+    updatePileDisplay();
 });
 document.getElementById('accepted-pile').addEventListener('click', () => showPileCards('accepted-pile'));
 document.getElementById('rejected-pile').addEventListener('click', () => showPileCards('rejected-pile'));
