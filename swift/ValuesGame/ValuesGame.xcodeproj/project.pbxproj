@@ -1,0 +1,112 @@
+// !$*UTF8*$!
+{
+    archiveVersion = 1;
+    classes = {
+    };
+    objectVersion = 56;
+    objects = {
+        /* Begin PBXBuildFile section */
+        1A2B3C4D5E6F7G8H /* ValuesGameApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A2B3C4D5E6F7G8I */;
+        1A2B3C4D5E6F7G8J /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A2B3C4D5E6F7G8K */;
+        1A2B3C4D5E6F7G8L /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A2B3C4D5E6F7G8M */;
+        1A2B3C4D5E6F7G8N /* GameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A2B3C4D5E6F7G8O */;
+        1A2B3C4D5E6F7G8P /* VennDiagramView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A2B3C4D5E6F7G8Q */;
+        /* End PBXBuildFile section */
+        
+        /* Begin PBXFileReference section */
+        1A2B3C4D5E6F7G8R /* ValuesGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ValuesGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
+        1A2B3C4D5E6F7G8I /* ValuesGameApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValuesGameApp.swift; sourceTree = "<group>"; };
+        1A2B3C4D5E6F7G8K /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+        1A2B3C4D5E6F7G8M /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+        1A2B3C4D5E6F7G8O /* GameModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameModel.swift; sourceTree = "<group>"; };
+        1A2B3C4D5E6F7G8Q /* VennDiagramView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VennDiagramView.swift; sourceTree = "<group>"; };
+        /* End PBXFileReference section */
+        
+        /* Begin PBXFrameworksBuildPhase section */
+        1A2B3C4D5E6F7G8S /* Frameworks */ = {
+            isa = PBXFrameworksBuildPhase;
+            buildActionMask = 2147483647;
+            files = (
+            );
+            runOnlyForDeploymentPostprocessing = 0;
+        };
+        /* End PBXFrameworksBuildPhase section */
+        
+        /* Begin PBXGroup section */
+        1A2B3C4D5E6F7G8T /* ValuesGame */ = {
+            isa = PBXGroup;
+            children = (
+                1A2B3C4D5E6F7G8I /* ValuesGameApp.swift */,
+                1A2B3C4D5E6F7G8K /* ContentView.swift */,
+                1A2B3C4D5E6F7G8M /* Card.swift */,
+                1A2B3C4D5E6F7G8O /* GameModel.swift */,
+                1A2B3C4D5E6F7G8Q /* VennDiagramView.swift */,
+            );
+            path = ValuesGame;
+            sourceTree = "<group>";
+        };
+        /* End PBXGroup section */
+        
+        /* Begin PBXNativeTarget section */
+        1A2B3C4D5E6F7G8U /* ValuesGame */ = {
+            isa = PBXNativeTarget;
+            buildConfigurationList = 1A2B3C4D5E6F7G8V;
+            buildPhases = (
+                1A2B3C4D5E6F7G8S /* Frameworks */,
+                1A2B3C4D5E6F7G8W /* Sources */,
+            );
+            buildRules = (
+            );
+            dependencies = (
+            );
+            name = ValuesGame;
+            productName = ValuesGame;
+            productReference = 1A2B3C4D5E6F7G8R /* ValuesGame.app */;
+            productType = "com.apple.product-type.application";
+        };
+        /* End PBXNativeTarget section */
+        
+        /* Begin XCBuildConfiguration section */
+        1A2B3C4D5E6F7G8X /* Debug */ = {
+            isa = XCBuildConfiguration;
+            buildSettings = {
+                ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+                ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+                CODE_SIGN_STYLE = Automatic;
+                CURRENT_PROJECT_VERSION = 1;
+                DEVELOPMENT_ASSET_PATHS = "\"ValuesGame/Preview Content\"";
+                ENABLE_PREVIEWS = YES;
+                GENERATE_INFOPLIST_FILE = YES;
+                INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+                INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+                INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+                INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+                INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+                LD_RUNPATH_SEARCH_PATHS = (
+                    "$(inherited)",
+                    "@executable_path/Frameworks",
+                );
+                MARKETING_VERSION = 1.0;
+                PRODUCT_BUNDLE_IDENTIFIER = com.example.ValuesGame;
+                PRODUCT_NAME = "$(TARGET_NAME)";
+                SWIFT_EMIT_LOC_STRINGS = YES;
+                SWIFT_VERSION = 5.0;
+                TARGETED_DEVICE_FAMILY = "1,2";
+            };
+            name = Debug;
+        };
+        /* End XCBuildConfiguration section */
+        
+        /* Begin XCConfigurationList section */
+        1A2B3C4D5E6F7G8V /* Build configuration list for PBXNativeTarget "ValuesGame" */ = {
+            isa = XCConfigurationList;
+            buildConfigurations = (
+                1A2B3C4D5E6F7G8X /* Debug */,
+            );
+            defaultConfigurationIsVisible = 0;
+            defaultConfigurationName = Debug;
+        };
+        /* End XCConfigurationList section */
+    };
+    rootObject = 1A2B3C4D5E6F7G8Y /* Project object */;
+}
