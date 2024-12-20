@@ -1,15 +1,8 @@
-const suits = ['♠', '♣', '♥', '♦'];
-const values = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K'];
 let deck = [];
 let currentCard = null;
 
 function initializeDeck() {
-    deck = [];
-    for (let suit of suits) {
-        for (let value of values) {
-            deck.push({ suit, value });
-        }
-    }
+    deck = [...vocabularyCards];
     shuffleDeck();
 }
 
@@ -23,11 +16,11 @@ function shuffleDeck() {
 function createCardElement(card) {
     const cardElement = document.createElement('div');
     cardElement.className = 'card';
-    const color = card.suit === '♥' || card.suit === '♦' ? 'red' : 'black';
     cardElement.innerHTML = `
-        <div class="card-content" style="color: ${color}">
-            <div class="card-value">${card.value}</div>
-            <div class="card-suit">${card.suit}</div>
+        <div class="card-content">
+            <div class="card-emoji">${card.emoji}</div>
+            <div class="card-word">${card.word}</div>
+            <div class="card-definition">${card.definition}</div>
         </div>
     `;
     return cardElement;
