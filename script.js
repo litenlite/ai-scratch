@@ -90,15 +90,13 @@ function handleDecision(accepted) {
         }
     }
     
-    // Add to pile immediately
-    document.getElementById(targetPile).appendChild(createCardElement(currentCard));
-    
     // Animate the card in deck
     cardElement.style.transform = `translateX(${direction}) rotate(${accepted ? '45deg' : '-45deg'})`;
     cardElement.style.opacity = '0';
     
     setTimeout(() => {
-        showNextCard();
+        updatePileDisplay(); // Update the piles first
+        showNextCard(); // Then show the next card
     }, 300);
 }
 
