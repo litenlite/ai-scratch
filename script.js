@@ -68,10 +68,14 @@ function handleDecision(accepted) {
         }
     }
     
-    const cardElement = document.querySelector('.card');
-    const targetPile = accepted ? 'accepted-pile' : 'rejected-pile';
+    const deckCard = document.querySelector('#deck .card');
     const direction = accepted ? '300px' : '-300px';
     
+    // Animate the card in deck first
+    deckCard.style.transform = `translateX(${direction}) rotate(${accepted ? '45deg' : '-45deg'})`;
+    deckCard.style.opacity = '0';
+    
+    // Add card to appropriate pile array
     if (accepted) {
         if (currentPlayer === 1) {
             player1Accepted.push(currentCard);
@@ -89,10 +93,6 @@ function handleDecision(accepted) {
             player2Rejected.push(currentCard);
         }
     }
-    
-    // Animate the card in deck
-    cardElement.style.transform = `translateX(${direction}) rotate(${accepted ? '45deg' : '-45deg'})`;
-    cardElement.style.opacity = '0';
     
     setTimeout(() => {
         updatePileDisplay(); // Update the piles first
