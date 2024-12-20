@@ -235,6 +235,11 @@ const vocabularyCards = [
         emoji: "🔭"
     },
     {
+        word: "Vulnerability",
+        definition: "The quality of being open to emotional expression or deep connection",
+        emoji: "💖"
+    },
+    {
         word: "Wisdom",
         definition: "The quality of having experience, knowledge, and good judgment",
         emoji: "🦉"
