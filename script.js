@@ -167,6 +167,7 @@ document.getElementById('player1-btn').addEventListener('click', () => {
     currentPlayer = 1;
     document.getElementById('player1-btn').classList.add('active');
     document.getElementById('player2-btn').classList.remove('active');
+    document.getElementById('card-count').textContent = `${player1Deck.length} cards`;
     updatePileDisplay();
 });
 
@@ -174,6 +175,7 @@ document.getElementById('player2-btn').addEventListener('click', () => {
     currentPlayer = 2;
     document.getElementById('player2-btn').classList.add('active');
     document.getElementById('player1-btn').classList.remove('active');
+    document.getElementById('card-count').textContent = `${player2Deck.length} cards`;
     updatePileDisplay();
 });
 document.getElementById('accepted-pile').addEventListener('click', () => showPileCards('accepted-pile'));
