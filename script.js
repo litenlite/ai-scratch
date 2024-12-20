@@ -172,12 +172,17 @@ function updatePileDisplay() {
     const acceptedCards = currentPlayer === 1 ? player1Accepted : player2Accepted;
     const rejectedCards = currentPlayer === 1 ? player1Rejected : player2Rejected;
     
-    acceptedCards.forEach(card => {
-        acceptedPile.appendChild(createCardElement(card));
+    // Add cards in reverse order to maintain visual stacking
+    [...acceptedCards].reverse().forEach(card => {
+        const cardEl = createCardElement(card);
+        cardEl.style.position = 'relative';
+        acceptedPile.appendChild(cardEl);
     });
     
-    rejectedCards.forEach(card => {
-        rejectedPile.appendChild(createCardElement(card));
+    [...rejectedCards].reverse().forEach(card => {
+        const cardEl = createCardElement(card);
+        cardEl.style.position = 'relative';
+        rejectedPile.appendChild(cardEl);
     });
 }
 
