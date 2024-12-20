@@ -160,6 +160,12 @@ h1 {
     max-height: calc(80vh - 100px);
 }
 
+#modal-cards .card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+    cursor: pointer;
+}
+
 .pile {
     cursor: pointer;
 }
