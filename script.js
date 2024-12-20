@@ -15,13 +15,15 @@ function initializeDeck() {
 // Create card elements
 function createCardElements() {
     const deckContainer = document.getElementById('deck');
-    deck.forEach((card, index) => {
+    const numVisibleCards = 5; // Number of visible stacked cards
+    
+    for (let i = 0; i < numVisibleCards; i++) {
         const cardElement = document.createElement('div');
         cardElement.className = 'card';
-        cardElement.innerHTML = '🂠'; // Card back symbol
+        cardElement.style.transform = `translateY(${i * 2}px) translateX(${i * 1}px) rotate(${i * 0.5}deg)`;
         cardElement.addEventListener('click', () => selectRandomCard());
         deckContainer.appendChild(cardElement);
-    });
+    }
 }
 
 // Select and display random card
