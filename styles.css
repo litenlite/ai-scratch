@@ -157,6 +157,16 @@ h1 {
     transition: transform 0.2s;
 }
 
+#show-values-btn {
+    width: auto;
+    height: auto;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    margin-top: 20px;
+    background-color: #44ff44;
+}
+
 .action-btn:hover {
     transform: scale(1.1);
 }

@@ -184,6 +184,19 @@ document.querySelector('.close-btn').addEventListener('click', () => {
     document.getElementById('modal').style.display = 'none';
 });
 
+// Add show values button handler
+document.getElementById('show-values-btn').addEventListener('click', () => {
+    const vennContainer = document.getElementById('venn-container');
+    const button = document.getElementById('show-values-btn');
+    if (vennContainer.style.display === 'none') {
+        vennContainer.style.display = 'block';
+        button.textContent = 'Hide Shared Values';
+    } else {
+        vennContainer.style.display = 'none';
+        button.textContent = 'Show Shared Values';
+    }
+});
+
 // Initialize the game
 initializeDeck();
 showNextCard();
