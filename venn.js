@@ -14,16 +14,16 @@ function drawVenn(player1Values, player2Values) {
     const vennContainer = document.getElementById('venn-diagram');
     vennContainer.innerHTML = `
         <div class="venn-circle player1">
-            <h3>Player 1</h3>
-            <div class="values">${uniqueToPlayer1.join(', ')}</div>
+            <h3>Player 1 Values</h3>
+            <div class="values">${uniqueToPlayer1.join('<br>')}</div>
         </div>
         <div class="venn-intersection">
             <h3>Shared Values</h3>
-            <div class="values">${intersection.join(', ')}</div>
+            <div class="values">${intersection.join('<br>')}</div>
         </div>
         <div class="venn-circle player2">
-            <h3>Player 2</h3>
-            <div class="values">${uniqueToPlayer2.join(', ')}</div>
+            <h3>Player 2 Values</h3>
+            <div class="values">${uniqueToPlayer2.join('<br>')}</div>
         </div>
     `;
 }
