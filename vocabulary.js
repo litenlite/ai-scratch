@@ -195,11 +195,6 @@ const vocabularyCards = [
         emoji: "💪"
     },
     {
-        word: "Self-awareness",
-        definition: "Conscious knowledge of one's own character and feelings",
-        emoji: "🪞"
-    },
-    {
         word: "Service",
         definition: "The action of helping or doing work for someone",
         emoji: "💝"
@@ -268,11 +263,6 @@ const vocabularyCards = [
         word: "Worthiness",
         definition: "The quality of being good enough or deserving",
         emoji: "💫"
-    },
-    {
-        word: "Xenial",
-        definition: "Hospitable, especially to strangers or foreigners",
-        emoji: "🏠"
     },
     {
         word: "Yearning",
