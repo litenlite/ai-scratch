@@ -66,7 +66,7 @@ function handleDecision(accepted) {
 function returnCardToDeck(card, pileCard) {
     const suit = card.querySelector('.card-suit').textContent;
     const value = card.querySelector('.card-value').textContent;
-    deck.unshift({ suit, value });
+    deck.push({ suit, value });
     pileCard.remove();
     showNextCard();
 }
