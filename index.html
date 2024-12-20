@@ -15,7 +15,11 @@
         </div>
     </div>
     <div class="container">
-        <h1>Vocabulary Cards (<span id="card-count"></span>)</span></h1>
+        <div id="player-select">
+            <button id="player1-btn" class="player-btn active">Player 1</button>
+            <button id="player2-btn" class="player-btn">Player 2</button>
+        </div>
+        <h1>Select Your Values (<span id="card-count"></span>)</h1>
         <div class="game-area">
             <div id="rejected-pile" class="pile">
                 <h3>Rejected</h3>
@@ -29,8 +33,13 @@
             <button id="reject-btn" class="action-btn reject">✗</button>
             <button id="accept-btn" class="action-btn accept">✓</button>
         </div>
+        <div id="venn-container">
+            <h2>Shared Values</h2>
+            <div id="venn-diagram"></div>
+        </div>
     </div>
     <script src="vocabulary.js"></script>
+    <script src="venn.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
