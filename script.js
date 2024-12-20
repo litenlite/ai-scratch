@@ -30,6 +30,8 @@ function showNextCard() {
     const deckContainer = document.getElementById('deck');
     deckContainer.innerHTML = '';
     
+    document.getElementById('card-count').textContent = `${deck.length} cards`;
+    
     if (deck.length === 0) {
         deckContainer.innerHTML = '<div class="no-cards">No more cards!</div>';
         return;
