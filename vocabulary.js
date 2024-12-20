@@ -245,6 +245,46 @@ const vocabularyCards = [
         emoji: "✨"
     },
     {
+        word: "Worthiness",
+        definition: "The quality of being good enough or deserving",
+        emoji: "💫"
+    },
+    {
+        word: "Xenial",
+        definition: "Hospitable, especially to strangers or foreigners",
+        emoji: "🏠"
+    },
+    {
+        word: "Yearning",
+        definition: "A deep, persistent longing or desire",
+        emoji: "💫"
+    },
+    {
+        word: "Yielding",
+        definition: "Inclined to give way to others; flexible and accommodating",
+        emoji: "🌿"
+    },
+    {
+        word: "Youth",
+        definition: "The quality of being eager, energetic and fresh in spirit",
+        emoji: "🌱"
+    },
+    {
+        word: "Zaniness",
+        definition: "The quality of being amusingly unconventional and quirky",
+        emoji: "🎭"
+    },
+    {
+        word: "Zealousness",
+        definition: "Passionate devotion or diligence in pursuit of something",
+        emoji: "⚡"
+    },
+    {
+        word: "Zen",
+        definition: "A state of calm attentiveness and peaceful harmony",
+        emoji: "☯️"
+    },
+    {
         word: "Zeal",
         definition: "Great energy or enthusiasm in pursuit of a cause or objective",
         emoji: "🔥"
